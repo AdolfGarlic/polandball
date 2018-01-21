@@ -77,38 +77,50 @@
 				left:800px;
 				top:15px;
 			}
-			gb{
-				position: absolute;
-				z-index: 0;
-				left:100px;
-				top:600px;
-			}
+
 			kymb{
 				position: absolute;
 				z-index: 2;
 				left:-50px;
 				top:110px;
 			}
+
 		</style>
 		<script type="text/javascript">
 			//打开面板的按钮们
 			function dkymb(){
 				var ui =document.getElementById("kymb");
-				var ui1 =document.getElementById("kj1");
+				var ui1 =document.getElementById("kej1");
+				var ui2 =document.getElementById("kej2")
 				if(ui.style.display == "none"){
 					ui.style.display = "inline"
 					ui1.style.display = "inline"
+					ui2.style.display = "inline"
 				}
-				if(ui.style.display == "inline"){
+				else{
 					ui.style.display = "none"
 					ui1.style.display = "none"
+					ui2.style.display = "none"
 				}
 			}
 			//变量童鞋们
 			var kyd = 100;
 			var zy = 1000;
 			var rl = 200000000;
+			//科技树的变量
+			var kj1 = false;
 			//科研面板操作
+			var ui3 = document.getElementById("ts1")
+			var ui4 = document.getElementById("ts2")
+			function keji1(){
+				if(kyd >= 0){
+					keji1_ts()
+				}
+			}
+			function keji1_ts(){
+				ui3.style.display = "inline"
+				ui4.style.display = "inline"
+			}
 		</script>
 
 	<link rel="stylesheet" href="../css/界面.css" />
@@ -141,12 +153,19 @@
                 <!--
                 	两边的超皮的球
                 -->
-                <gb><img src="../img/德三球1_副本.gif" height="300"width="300"></gb>
+                <img src="../img/德三球2.gif" height="300"width="300"style="position: absolute;z-index: 0;left:100px;top:680px;">
+                <img src="../img/德三球1.gif"height="300"width="300"style="position: absolute;z-index: 0;left:1600px;top:680px;">
                 <!--
                 	科研面板
                 -->
                 <kymb><img id="kymb" src="../img/UI1.png"height="830"width="1960"style="display: none;"></kymb>
-                <input type="button" id="kj1" style="width: 200;height: 100;background-image: url(../img/98k.png);left: 200;top: 120;display: none;z-index: 5;">
+                <input type="button" id="kej1" onclick="keji1()" style="position: absolute;z-index: 5;left: 200px;top: 120px;width: 200px;height: 100px;background-image: url(../img/98k.png);display: none">
+				<input type="button" id="kej2" style="position: absolute;z-index: 5;left: 200px;top: 290px;width: 200px;height: 100px;background-image: url(../img/二号坦克.png);display: none;">
+					<!--
+                    	提示
+                    -->
+                    <img id = "ts1" src="../img/UI1.png"style="position: absolute;z-index: 6;left: 600px;top:400px;display: none;"height="300"width="500">
+                    <h1 id = "ts2" style="position:absolute;z-index: 7;font-size: 40px;font-family: '微软雅黑';left: 635px;top: 400px;display: none;">确定要研发这个科技吗？</h1>
 		</div> 
 	</body>
 </html>
